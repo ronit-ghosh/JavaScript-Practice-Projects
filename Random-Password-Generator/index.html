@@ -6,31 +6,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Password Generator</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="n.css">
 </head>
 
 <body>
-    <div class="container">
-    <form action="">
-        <h2>Password Generator</h2>
-        <div class="">Characters Length:</div>
-        <input type="number" id="length" value="8" min="6">
+    <div class="container center">
+        <form action="">
+            <h2>PASSSWORD GENERATOR</h2>
+            <div class="characterLength">Characters Length:
+                <input type="number" id="length" value="8" min="6">
+            </div>
 
-        <div class="radioButtons">
-        <div class=""><input type="radio" name="" id="lowercase"> Lowercase Characters</div>
+            <div class="radioButtons">
+                <div class=""><input type="checkbox" class="checkboxbg" id="lowercase"> Lowercase Characters</div>
+                <div class=""><input type="checkbox" class="checkboxbg" id="uppercase"> Uppercase Characters</div>
+                <div class=""><input type="checkbox" class="checkboxbg" id="numeric"> Numerical Characters</div>
+                <div class=""><input type="checkbox" class="checkboxbg" id="symbol"> Symbols</div>
+            </div>
 
-        <div class=""><input type="radio" name="" id="uppercase"> Uppercase Characters</div>
+            <div class="btn center"><button onclick="generatePassword(); return false;">Generate</button></div>
 
-        <div class=""><input type="radio" name="" id="numeric"> Numerical Characters</div>
+            <div class="center">
+                <div class="password "></div>
+            </div>
 
-        <div class=""><input type="radio" name="" id="symbol"> Symbols</div>
+            <div class="copyBtn center"><button class="copy" onclick="copyPassword()">Copy</button></div>
+        </form>
     </div>
-        <div class="btn"><button onclick="generatePassword(); return false;">Generate</button></div>
-
-        <div class="password"></div>
-
-        <div class="copyBtn"><button class="copy" onclick="copyPassword()">Copy</button></div>
-    </form>
-</div>
     <script src="index.js"></script>
 </body>
 
