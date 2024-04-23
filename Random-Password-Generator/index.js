@@ -39,7 +39,7 @@ function randomPass(length, lowercase, uppercase, numeric, symbols) {
     return password;
 }
 
-//--COPY PASSWORD BUTTON--
+// --COPY PASSWORD BUTTON--
 function copyPassword() {
     const passwordField = document.querySelector(".password");
     const password = passwordField.textContent;
