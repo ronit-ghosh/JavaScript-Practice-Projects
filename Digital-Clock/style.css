@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Anek+Devanagari:wght@100..800&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Schibsted+Grotesk:ital,wght@0,400..900;1,400..900&display=swap');
+
+*{
+    box-sizing: border-box;
+    font-family: Schibsted Grotesk;
+    margin: 0;
+    padding: 0;
+}
+
+.flex_center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body{
+    height: 92vh;
+}
+
+.container{
+    height: 250px;
+    width: 250px;
+    border-radius: 50%;
+    flex-direction: column;
+    box-shadow: 5px 6px 15px -5px ;
+    /* box-shadow: inset -1px -2px 3px; */
+}
+
+.container:hover{
+    .seconds{
+        display: contents;
+    }
+    transition: ease-in-out;
+}
+
+.hours{
+    font-size: 50px;
+}
+
+.minutes{
+    font-size: 50px;
+}
+
+.seconds{
+    font-size: 20px;
+    display:none;
+}
