@@ -16,10 +16,13 @@ function clock(){
     sec.textContent = `${seconds} ${meridiem}`;
 
     //Background Color Change as Time changes
-    if (hours>12){
+    if (hours >= 9 && meridiem === "AM"){
         document.body.style.backgroundColor = "rgb(241, 255, 240)"
     }
-    else{
+    else if (hours <= 6 && meridiem === "PM"){
+        document.body.style.backgroundColor = "rgb(241, 255, 240)"
+    }
+    else {
         document.body.style.backgroundColor = "aliceblue"
     }
 }
