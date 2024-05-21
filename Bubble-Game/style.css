@@ -1,0 +1,120 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#container {
+    width: 390px;
+    height: 680px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#game {
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+#head {
+    position: relative;
+    width: 100%;
+    height: 15%;
+    background-color: darkgray;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    text-align: center;
+}
+
+.box {
+    height: 40px;
+    width: 70px;
+    background-color: white;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 8px;
+}
+
+#head span {
+    font-size: 20px;
+    font-weight: 800;
+}
+
+#bubbles_container {
+    position: relative;
+    width: 100%;
+    height: 85%;
+    background-color: gray;
+    display: flex;
+    flex-wrap: wrap;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#bubbles {
+    height: 60px;
+    width: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 40%;
+    background-color: black;
+    margin: 8.5px;
+    color: white;
+    cursor: pointer;
+}
+
+#game_over {
+    font-weight: 900;
+    font-size: 40px;
+    text-align: center;
+}
+
+#new_game {
+    border: none;
+    background-color: black;
+    color: white;
+    border-radius: 20px;
+    margin-top: 30px;
+    width: 140px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#refresh1 {
+    position: absolute;
+    top: 5%;
+    right: 2%;
+    width: 18px;
+    cursor: pointer;
+}
+
+#refresh2 {
+    position: absolute;
+    top: 105%;
+    right: 1%;
+    width: 18px;
+    cursor: pointer;
+    z-index: 10;
+}

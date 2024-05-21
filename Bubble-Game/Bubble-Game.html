@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bubble Game</title>
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#container {
+    width: 390px;
+    height: 680px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#game {
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+#head {
+    position: relative;
+    width: 100%;
+    height: 15%;
+    background-color: darkgray;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    text-align: center;
+}
+
+.box {
+    height: 40px;
+    width: 70px;
+    background-color: white;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 8px;
+}
+
+#head span {
+    font-size: 20px;
+    font-weight: 800;
+}
+
+#bubbles_container {
+    position: relative;
+    width: 100%;
+    height: 85%;
+    background-color: gray;
+    display: flex;
+    flex-wrap: wrap;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#bubbles {
+    height: 60px;
+    width: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 40%;
+    background-color: black;
+    margin: 8.5px;
+    color: white;
+    cursor: pointer;
+}
+
+#game_over {
+    font-weight: 900;
+    font-size: 40px;
+    text-align: center;
+}
+
+#new_game {
+    border: none;
+    background-color: black;
+    color: white;
+    border-radius: 20px;
+    margin-top: 30px;
+    width: 140px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#refresh1 {
+    position: absolute;
+    top: 5%;
+    right: 2%;
+    width: 18px;
+    cursor: pointer;
+}
+
+#refresh2 {
+    position: absolute;
+    top: 105%;
+    right: 1%;
+    width: 18px;
+    cursor: pointer;
+    z-index: 10;
+}
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div id="game">
+            <div id="head">
+                <svg id="refresh1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" color="#000000" fill="none">
+                    <path d="M20.0092 2V5.13219C20.0092 5.42605 19.6418 5.55908 19.4537 5.33333C17.6226 3.2875 14.9617 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <svg id="refresh2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" color="#000000" fill="none">
+                    <path d="M20.0092 2V5.13219C20.0092 5.42605 19.6418 5.55908 19.4537 5.33333C17.6226 3.2875 14.9617 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <span>Hit<div class="box" id="hit_num">5</div></span>
+                <span>Timer<div class="box" id="timer">60</div></span>
+                <span>Score<div class="box" id="score">0</div></span>
+            </div>
+
+            <div id="bubbles_container">
+                <!-- <div id="bubbles">1</div> -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        console.log("Hey It's me Ronit")
+
+// Generates bubbles with random numbers
+function makeBubbles() {
+    for (let i = 1; i <= 40; i++) {
+        let random = Math.floor(Math.random() * 10);
+        bubbles_container.innerHTML += `<div id="bubbles">${random}</div>`;
+    }
+}
+
+// Generates random hit number
+let randomNum;
+function randomHitNumber() {
+    randomNum = Math.floor(Math.random() * 10);
+    hit_num.textContent = randomNum;
+}
+
+// Game timer
+let gameTime = 60;
+let interval;
+function timeUpdate() {
+    interval = setInterval(() => {
+        if (gameTime >= 0) {
+            updateTimer = gameTime--;
+            timer.textContent = updateTimer;
+        }
+        else {
+            clearInterval(interval);
+            bubbles_container.innerHTML = `<h1 id="game_over">GAME OVER<br>Your score: ${count}</h1>
+                                            <button onclick=newGame() id="new_game">New Game </button>`
+        }
+    }, 1000);
+}
+
+// Update the score
+let count = 0;
+function updateScore() {
+    count += 10;
+    score.innerHTML = count;
+}
+
+// Game mechanism
+function play() {
+    bubbles_container.addEventListener("click", (e) => {
+        clickedNum = Number(e.target.innerHTML);
+        if (clickedNum == randomNum) {
+            updateScore();
+            randomHitNumber();
+            bubbles_container.innerHTML = "";
+            makeBubbles();
+        }
+
+    })
+}
+
+// New game
+function newGame() {
+    clearInterval(interval);
+    gameTime = 60;
+    count = 0;
+    score.textContent = count;
+    randomHitNumber();
+    bubbles_container.innerHTML = "";
+    makeBubbles();
+    timeUpdate();
+
+}
+
+// Refresh button
+refresh1.addEventListener("click", () => {
+    newGame();
+})
+
+refresh2.addEventListener("click", () => {
+    bubbles_container.innerHTML = "";
+    makeBubbles();
+})
+
+makeBubbles();
+timeUpdate();
+play();
+randomHitNumber();
+    </script>
+</body>
+
+</html>
