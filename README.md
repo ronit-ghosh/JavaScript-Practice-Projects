@@ -1,18 +1,12 @@
-# Mini-JavaScript-Practice-Projects
-Certainly! Here's a template for your README file:
-
----
-
 # JavaScript Beginner Practice Projects
 
 Welcome to the JavaScript Beginner Practice Projects repository! This repository contains a collection of simple projects designed to help beginners practice their JavaScript skills. Whether you're just starting out with JavaScript or looking to refresh your skills, these projects are a great way to hone your coding abilities.
 
 ## Projects
 
-1. **Project Name 1**: Description of the first project goes here.
-2. **Project Name 2**: Description of the second project goes here.
-3. **Project Name 3**: Description of the third project goes here.
-   <!-- Add more projects as necessary -->
+1. **Project Name 1**: Bubble Game
+2. **Project Name 2**: Number Guessing Game
+3. **Project Name 3**: Password Generator 
 
 ## Getting Started
 
